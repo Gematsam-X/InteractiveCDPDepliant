@@ -1,221 +1,102 @@
 <!DOCTYPE html>
+
 <html lang="it">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Deplian CDP Pia Pera</title>
-
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Depliant CDP Pia Pera</title>
     <meta
-      name="description"
       content="La Tavola Periodica delle Informazioni Utili è un depliant interattivo della scuola Carlo del Prete, istituto comprensivo Pia Pera."
+      name="description"
     />
-
-    <meta name="keywords" content="scuola, depliant" />
-
-    <meta property="og:title" content="Depliant CDP Pia Pera" />
     <meta
+      content="scuola, depliant, cdp, carlo del prete, pia pera, lucca3, lucca 3, medie, scuola media, scuole medie, media"
+      name="keywords"
+    />
+    <meta content="Depliant CDP Pia Pera" property="og:title" />
+    <meta
+      content="La Tavola Periodica delle Informazioni Utili è un depliant interattivo della scuola Carlo del Prete, istituto comprensivo Pia Pera."
       property="og:description"
-      content="Una tavola periodica interattiva con approfondimenti su ogni elemento: dati, curiosità e strumenti utili per imparare la chimica in modo semplice e coinvolgente."
     />
     <meta
+      content="https://interactivecdpdepliant.netlify.app/src/assets/favicon.ico"
       property="og:image"
-      content="https://interactivepertab.netlify.app/src/assets/favicon.jpg"
     />
-    <meta property="og:url" content="https://interactivepertab.netlify.app/" />
-    <meta property="og:type" content="website" />
-
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="assets/favicon.ico" />
-    <link rel="canonical" href="https://interactivepertab.netlify.app/" />
+    <meta
+      content="https://interactivecdpdepliant.netlify.app/"
+      property="og:url"
+    />
+    <meta content="website" property="og:type" />
+    <link href="styles.css" rel="stylesheet" />
+    <link href="assets/favicon.ico" rel="icon" />
+    <link href="https://interactivecdpdepliant.netlify.app/" rel="canonical" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Deplian CDP Pia Pera",
+        "name": "Depliant CDP Pia Pera",
         "url": "https://interactivecdpdepliant.netlify.app/",
         "operatingSystem": "All",
         "description": "La Tavola Periodica delle Informazioni Utili è un depliant interattivo della scuola Carlo del Prete, istituto comprensivo Pia Pera."
       }
     </script>
   </head>
-
   <body>
-    <h1>Deplian CDP Pia Pera</h1>
-
+    <h1>Depliant CDP Pia Pera</h1>
     <button class="theme-toggle">Cambia tema</button>
-
     <table class="periodic-table">
+      <colgroup>
+        <col span="6" />
+      </colgroup>
       <tr>
-        <td class="no-border"></td>
-        <td class="no-border"></td>
-        <td class="no-border"></td>
-        <td colspan="8" class="no-border removable"></td>
-        <td colspan="7" class="no-border"></td>
-        <td class="no-border"></td>
+        <td class="talent" data-symbol="ml">
+          1<br />ML<br />Musical &amp; orchestra
+        </td>
+        <td class="no-border" colspan="4"></td>
+        <td class="contact" data-symbol="st">4<br />ST<br />Sito scuola</td>
       </tr>
       <tr>
-        <td class="no-border"></td>
-        <td
-          class="non-metal"
-          data-period="1"
-          data-group="1"
-          data-symbol="H"
-          data-name="Idrogeno"
-          data-atomic-number="1"
-        >
-          1<br />H<br />Idrogeno<br />1.008
+        <td class="talent" data-symbol="ltmt">
+          2<br />LTMT<br />Potenziamento
         </td>
-        <td class="no-border"></td>
-        <td colspan="2" class="no-border removable"></td>
-
-        <td
-          class="noble-gas"
-          data-period="1"
-          data-group="18"
-          data-symbol="He"
-          data-name="Elio"
-          data-atomic-number="2"
-        >
-          2<br />He<br />Elio<br />4.0026
+        <td class="talent" data-symbol="ml">3<br />GS<br />Gruppo sportivo</td>
+        <td class="no-border" colspan="2"></td>
+        <td class="contact" data-symbol="sg">5<br />SG<br />Segreteria</td>
+        <td class="contact" data-symbol="ag">
+          6<br />AG<br />Associazione genitori
         </td>
       </tr>
       <tr>
-        <td class="no-border"></td>
-        <td
-          class="metal"
-          data-period="2"
-          data-group="1"
-          data-symbol="Li"
-          data-name="Litio"
-          data-atomic-number="3"
-        >
-          3<br />Li<br />Litio<br />6.94
+        <td class="logistic" data-symbol="or">7<br />OR<br />Orario lezioni</td>
+        <td class="logistic" data-symbol="is">8<br />IS<br />Iscrizioni</td>
+        <td class="innovation" data-symbol="sl">11<br />SL<br />Lab Scienze</td>
+        <td class="innovation" data-symbol="itl">
+          12<br />ITL<br />Italiano L2
         </td>
-        <td
-          class="metalloid"
-          data-period="3"
-          data-group="14"
-          data-symbol="Si"
-          data-name="Silicio"
-          data-atomic-number="14"
-        >
-          14<br />Si<br />Silicio<br />28.085
-        </td>
-        <td class="no-border"></td>
-        <td
-          class="non-metal"
-          data-period="3"
-          data-group="15"
-          data-symbol="P"
-          data-name="Fosforo"
-          data-atomic-number="15"
-        >
-          15<br />P<br />Fosforo<br />30.974
-        </td>
-        <td
-          class="noble-gas"
-          data-period="2"
-          data-group="18"
-          data-symbol="Ne"
-          data-name="Neon"
-          data-atomic-number="10"
-        >
-          10<br />Ne<br />Neon<br />20.180
+        <td class="wellness" data-symbol="in">15<br />KV<br />Progetto KiVa</td>
+        <td class="wellness" data-symbol="in">
+          16<br />OD<br />Outdoor learning
         </td>
       </tr>
       <tr>
-        <td class="no-border"></td>
-        <td
-          class="metal"
-          data-period="3"
-          data-group="1"
-          data-symbol="Na"
-          data-name="Sodio"
-          data-atomic-number="11"
-        >
-          11<br />Na<br />Sodio<br />22.99
+        <td class="logistic" data-symbol="cm">
+          9<br />CM<br />Classi musicali
         </td>
-        <td
-          class="metal"
-          data-period="3"
-          data-group="2"
-          data-symbol="Mg"
-          data-name="Magnesio"
-          data-atomic-number="12"
-        >
-          12<br />Mg<br />Magnesio<br />24.305
+        <td class="logistic" data-symbol="ot">10<br />OT<br />Orientamento</td>
+        <td class="innovation" data-symbol="li">
+          13<br />LI<br />Lab informatica
         </td>
-        <td
-          class="metal transition-metal"
-          data-period="3"
-          data-group="13"
-          data-symbol="Al"
-          data-name="Alluminio"
-          data-atomic-number="13"
-        >
-          13<br />Al<br />Alluminio<br />26.982
+        <td class="innovation" data-symbol="rb">
+          14<br />RB<br />Robotica &amp; coding
         </td>
-        <td
-          class="noble-gas"
-          data-period="3"
-          data-group="18"
-          data-symbol="Ar"
-          data-name="Argon"
-          data-atomic-number="18"
-        >
-          18<br />Ar<br />Argon<br />39.948
+        <td class="wellness" data-symbol="as">
+          17<br />AS<br />Arti espressive
         </td>
-        <td>tot<br />Ex<br />Elem1+</td>
-      </tr>
-      <tr>
-        <td class="no-border"></td>
-        <td
-          class="metal"
-          data-period="2"
-          data-group="2"
-          data-symbol="Be"
-          data-name="Berillio"
-          data-atomic-number="4"
-        >
-          4<br />Be<br />Berillio<br />9.0122
-        </td>
-
-        <td
-          class="metalloid"
-          data-period="2"
-          data-group="13"
-          data-symbol="B"
-          data-name="Boro"
-          data-atomic-number="5"
-        >
-          5<br />B<br />Boro<br />10.81
-        </td>
-        <td
-          class="non-metal"
-          data-period="2"
-          data-group="14"
-          data-symbol="C"
-          data-name="Carbonio"
-          data-atomic-number="6"
-        >
-          6<br />C<br />Carbonio<br />12.011
-        </td>
-        <td
-          class="non-metal"
-          data-period="2"
-          data-group="15"
-          data-symbol="N"
-          data-name="Azoto"
-          data-atomic-number="7"
-        >
-          7<br />N<br />Azoto<br />14.007
-        </td>
-        <td>tot2<br />biblioteca al piano di sotto<br />Elem2+</td>
+        <td class="wellness" data-symbol="in">18<br />IN<br />Inclusione</td>
       </tr>
     </table>
-    <script type="module" src="js/theme.js"></script>
-    <script type="module" src="js/legend.js"></script>
-    <script type="module" src="js/main.js"></script>
+    <script src="js/theme.js" type="module"></script>
+    <script src="js/legend.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>
