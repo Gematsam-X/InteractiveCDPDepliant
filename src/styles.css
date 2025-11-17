@@ -82,7 +82,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center; /* centra verticalmente */
-  align-items: center;     /* centra orizzontalmente */
+  align-items: center; /* centra orizzontalmente */
   min-height: 100vh;
 }
 
@@ -98,11 +98,15 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  h1 { font-size: 4vw; }
+  h1 {
+    font-size: 4vw;
+  }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 6vw; }
+  h1 {
+    font-size: 6vw;
+  }
 }
 
 /* ----------------------------- */
@@ -135,22 +139,44 @@ td:hover {
 }
 
 /* CATEGORY COLORS */
-.contact { background-color: var(--contact-bg); }
-.contact:hover { background-color: var(--contact-hover); }
+.contact {
+  background-color: var(--contact-bg);
+}
+.contact:hover {
+  background-color: var(--contact-hover);
+}
 
-.wellness { background-color: var(--wellness-bg); }
-.wellness:hover { background-color: var(--wellness-hover); }
+.wellness {
+  background-color: var(--wellness-bg);
+}
+.wellness:hover {
+  background-color: var(--wellness-hover);
+}
 
-.talent { background-color: var(--talent-bg) !important; }
-.talent:hover { background-color: var(--talent-hover) !important; }
+.talent {
+  background-color: var(--talent-bg) !important;
+}
+.talent:hover {
+  background-color: var(--talent-hover) !important;
+}
 
-.innovation { background-color: var(--innovation-bg) !important; }
-.innovation:hover { background-color: var(--innovation-hover) !important; }
+.innovation {
+  background-color: var(--innovation-bg) !important;
+}
+.innovation:hover {
+  background-color: var(--innovation-hover) !important;
+}
 
-.logistic { background-color: var(--logistic-bg) !important; }
-.logistic:hover { background-color: var(--logistic-hover) !important; }
+.logistic {
+  background-color: var(--logistic-bg) !important;
+}
+.logistic:hover {
+  background-color: var(--logistic-hover) !important;
+}
 
-.no-border { border: none !important; }
+.no-border {
+  border: none !important;
+}
 
 /* ----------------------------- */
 /* BUTTONS                       */
@@ -184,36 +210,50 @@ button.theme-toggle {
   font-size: 16px;
 }
 
-/* ----------------------------- */
-/* RESPONSIVE TABLE & FONT        */
-/* ----------------------------- */
-
-/* tablet / piccoli laptop */
-@media (max-width: 1024px) {
-  .periodic-table colgroup col { width: 8vw; }
-  .periodic-table td { 
-    width: 8vw; 
-    height: 8vw; 
-    font-size: 2vw; 
-  }
+#orientation-banner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f39c12;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* smartphone medi */
+/* ----------------------------- */
+/* MOBILE-FRIENDLY: OCCUPA 50%  */
+/* ----------------------------- */
+
 @media (max-width: 768px) {
-  .periodic-table colgroup col { width: 10vw; }
-  .periodic-table td { 
-    width: 10vw; 
-    height: 10vw; 
-    font-size: 3vw; 
+  .periodic-table {
+    width: 50vw; /* metà della larghezza dello schermo */
+    height: 50vh; /* metà dell’altezza dello schermo */
+    max-width: 50vw;
+    max-height: 50vh;
+    overflow: auto; /* scroll se necessario */
+  }
+
+  .periodic-table td {
+    width: auto !important; /* annulla qualsiasi width fissa precedente */
+    height: auto !important; /* annulla qualsiasi height fissa precedente */
+    font-size: 1.5vw !important;
+    padding: 3px !important;
   }
 }
 
-/* smartphone piccoli */
 @media (max-width: 480px) {
-  .periodic-table colgroup col { width: 12vw; }
-  .periodic-table td { 
-    width: 12vw; 
-    height: 12vw; 
-    font-size: 4vw; 
+  .periodic-table {
+    width: 50vw;
+    height: 30vh;
+  }
+
+  .periodic-table td {
+    font-size: 2vw !important;
+    padding: 2px !important;
   }
 }

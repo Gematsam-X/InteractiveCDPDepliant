@@ -5,6 +5,24 @@ window.addEventListener("load", function () {
   });
 });
 
+// Mostra/nasconde il banner in base all'orientamento
+const banner = document.getElementById("orientation-banner");
+
+function updateOrientationBanner() {
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    banner.style.display = "block"; // mostra banner
+  } else {
+    banner.style.display = "none"; // nasconde banner
+  }
+}
+
+// Controllo iniziale
+updateOrientationBanner();
+
+// Listener per cambio orientamento
+window.addEventListener("resize", updateOrientationBanner);
+window.addEventListener("orientationchange", updateOrientationBanner);
+
 // Select all <td> elements
 let elements = document.querySelectorAll("td[data-symbol]");
 
@@ -17,12 +35,7 @@ function checkElementsClass() {
     // Check if the class is not empty and not "special", "legend", "no-border" or "specialLegend"
     if (
       element.classList.length > 0 &&
-      !element.classList.contains("legend") &&
-      !element.classList.contains("no-border") &&
-      !element.classList.contains("group") &&
-      !element.classList.contains("period") &&
-      !element.classList.contains("specialLegend") &&
-      !element.classList.contains("special")
+      !element.classList.contains("no-border")
     ) {
       filteredElements.push(element);
       // Add a click event for redirection
