@@ -20,6 +20,8 @@
 
   --logistic-bg: #559af5;
   --logistic-hover: #457ec9;
+
+  --link-color: blue;
 }
 
 /* DARK THEME */
@@ -44,6 +46,8 @@
 
   --logistic-bg: #4e74c9;
   --logistic-hover: #3f5ea5;
+
+  --link-color: rgb(123, 99, 255);
 }
 
 /* ----------------------------- */
@@ -91,10 +95,14 @@ body {
 /* ----------------------------- */
 
 h1 {
-  font-size: 2.5vw;
   margin: 20px 0;
   color: var(--primary-color);
   text-align: center;
+}
+
+p {
+  text-align: center;
+  margin: 10% 5%;
 }
 
 @media (max-width: 768px) {
@@ -210,30 +218,25 @@ button.theme-toggle {
   font-size: 16px;
 }
 
-#orientation-banner {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f39c12;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-family: Arial, sans-serif;
-  z-index: 9999;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+a {
+  color: var(--link-color);
 }
 
-/* ----------------------------- */
-/* MOBILE-FRIENDLY: OCCUPA 50%  */
-/* ----------------------------- */
+button.back {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+/* --------------- */
+/* MOBILE-FRIENDLY */
+/* --------------- */
 
 @media (max-width: 768px) {
   .periodic-table {
-    width: 50vw; /* metà della larghezza dello schermo */
+    width: 80vw; /* metà della larghezza dello schermo */
     height: 50vh; /* metà dell’altezza dello schermo */
-    max-width: 50vw;
+    max-width: 80vw;
     max-height: 50vh;
     overflow: auto; /* scroll se necessario */
   }
@@ -241,19 +244,19 @@ button.theme-toggle {
   .periodic-table td {
     width: auto !important; /* annulla qualsiasi width fissa precedente */
     height: auto !important; /* annulla qualsiasi height fissa precedente */
-    font-size: 1.5vw !important;
-    padding: 3px !important;
+    font-size: 2.5vw !important;
+    padding: 5px !important;
   }
 }
 
 @media (max-width: 480px) {
   .periodic-table {
-    width: 50vw;
+    width: 80vw;
     height: 30vh;
   }
 
   .periodic-table td {
-    font-size: 2vw !important;
-    padding: 2px !important;
+    font-size: 2.5vw !important;
+    padding: 4px !important;
   }
 }

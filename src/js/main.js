@@ -5,24 +5,6 @@ window.addEventListener("load", function () {
   });
 });
 
-// Mostra/nasconde il banner in base all'orientamento
-const banner = document.getElementById("orientation-banner");
-
-function updateOrientationBanner() {
-  if (window.matchMedia("(orientation: portrait)").matches) {
-    banner.style.display = "block"; // mostra banner
-  } else {
-    banner.style.display = "none"; // nasconde banner
-  }
-}
-
-// Controllo iniziale
-updateOrientationBanner();
-
-// Listener per cambio orientamento
-window.addEventListener("resize", updateOrientationBanner);
-window.addEventListener("orientationchange", updateOrientationBanner);
-
 // Select all <td> elements
 let elements = document.querySelectorAll("td[data-symbol]");
 
@@ -32,7 +14,7 @@ let filteredElements = [];
 // Iterate over each <td> element
 function checkElementsClass() {
   elements.forEach((element) => {
-    // Check if the class is not empty and not "special", "legend", "no-border" or "specialLegend"
+    // Check if the class list is not empty and does not contain "no-border"
     if (
       element.classList.length > 0 &&
       !element.classList.contains("no-border")
@@ -48,9 +30,14 @@ function checkElementsClass() {
         window.setTimeout(() => {
           resetDefaultStyle();
         }, 500);
-        if (symbol)
-          window.location.href =
-            "elements/html/" + symbol.toLowerCase() + ".html";
+        if (symbol) {
+          if (symbol === "st")
+            window.location.href = "https://www.lucca3.edu.it/";
+          else if (symbol === "sg")
+            window.location.href = "mailto:LUIC84600N@istruzione.it";
+          else
+            window.location.href = "elements/" + symbol.toLowerCase() + ".html";
+        }
       });
     }
   });
@@ -68,12 +55,10 @@ async function extractElementData() {
     const cells = row.querySelectorAll("td[data-symbol]");
     cells.forEach((cell) => {
       const symbol = cell.getAttribute("data-symbol");
-      const elementName = cell.getAttribute("data-name");
 
-      if (symbol && elementName) {
+      if (symbol) {
         temporaryData.push({
           symbol,
-          elementName,
         });
       }
     });
