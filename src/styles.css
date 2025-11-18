@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   /* Base colors */
   --bg: #f4f4f9;
@@ -54,13 +56,6 @@
 /* GENERAL STYLES               */
 /* ----------------------------- */
 
-@font-face {
-  font-family: "Fira Sans Condensed";
-  src: url("./assets/fonts/FiraSansCondensed-SemiBold.woff2") format("woff2");
-  font-style: normal;
-  font-display: swap;
-}
-
 html {
   visibility: hidden;
   display: none;
@@ -79,6 +74,7 @@ body {
   background-color: var(--bg);
   color: var(--text-color);
   font-family: "Fira Sans Condensed", Arial;
+  font-weight: 400;
   margin: 0;
   padding: 0;
 
