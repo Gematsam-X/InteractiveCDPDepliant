@@ -27,14 +27,60 @@ function checkElementsClass() {
         const symbol = element.getAttribute("data-symbol");
         // Redirect to the element's page
         window.sessionStorage.removeItem("currentElement");
-        window.setTimeout(() => {
-          resetDefaultStyle();
-        }, 500);
         if (symbol) {
+          function openMailClient(email, subject = "", body = "") {
+            // Costruisce la mailto URL
+            const mailto = `mailto:${email}?subject=${encodeURIComponent(
+              subject
+            )}&body=${encodeURIComponent(body)}`;
+
+            // 1) Metodo principale: link invisibile con click simulato
+            const a = document.createElement("a");
+            a.href = mailto;
+            a.style.display = "none";
+            document.body.appendChild(a);
+
+            let mailOpened = false;
+
+            try {
+              a.click();
+              mailOpened = true;
+            } catch (err) {
+              mailOpened = false;
+            }
+
+            // Rimuove il link
+            a.remove();
+
+            // 2) Timeout: se in 800ms non succede nulla → significa che mailto è fallito
+            setTimeout(() => {
+              if (!mailOpened) {
+                console.log(
+                  "Mail client not opened, trying Gmail after 800ms..."
+                );
+                // Fallback Gmail
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${email}&su=${encodeURIComponent(
+                  subject
+                )}&body=${encodeURIComponent(body)}`;
+
+                // Apri Gmail
+                const w = window.open(gmailUrl, "_blank");
+
+                // 3) Gmail bloccato? → ultimo fallback Outlook Web
+                if (!w) {
+                  const outlookUrl = `https://outlook.live.com/mail/deeplink/compose?to=${email}&subject=${encodeURIComponent(
+                    subject
+                  )}&body=${encodeURIComponent(body)}`;
+                  window.open(outlookUrl, "_blank");
+                }
+              }
+              alert("Email: " + email);
+            }, 800);
+          }
+
           if (symbol === "st")
             window.location.href = "https://www.lucca3.edu.it/";
-          else if (symbol === "sg")
-            window.location.href = "mailto:LUIC84600N@istruzione.it";
+          else if (symbol === "sg") openMailClient("LUIC84600N@istruzione.it");
           else
             window.location.href = "elements/" + symbol.toLowerCase() + ".html";
         }
@@ -92,23 +138,23 @@ if (currentElementSymbol) {
       element.classList.add("faded");
     }
   });
-
-  // Add the event listener for the click
-  document.addEventListener("click", (event) => {
-    const clickedElement = event.target;
-    const isInsideHighlighted = [...allElements].some(
-      (element) =>
-        element.contains(clickedElement) && !element.classList.contains("faded")
-    );
-
-    // If you click outside the periodic table, restore the default style
-    if (!isInsideHighlighted) {
-      resetDefaultStyle();
-    }
-  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   extractElementData(); // Extracts data
   checkElementsClass(); // Checks classes on elements
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Creiamo un finto evento mouseout sull’elemento attualmente hoverato
+  const hovered = document.querySelectorAll(":hover");
+
+  hovered.forEach((el) => {
+    const evt = new MouseEvent("mouseout", {
+      bubbles: true,
+      cancelable: true,
+      view: window,
+    });
+    el.dispatchEvent(evt);
+  });
 });
