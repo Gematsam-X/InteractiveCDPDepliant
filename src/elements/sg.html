@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Segreteria e iscrizioni - SG</title>
+    <meta
+      content="La Tavola Periodica delle Informazioni Utili è un depliant interattivo della scuola Carlo del Prete, istituto comprensivo Pia Pera."
+      name="description"
+    />
+    <meta
+      content="scuola, depliant, cdp, carlo del prete, pia pera, lucca3, lucca 3, medie, scuola media, scuole medie, media"
+      name="keywords"
+    />
+    <meta content="Depliant Carlo del Prete - Pia Pera" property="og:title" />
+    <meta
+      content="La Tavola Periodica delle Informazioni Utili è un depliant interattivo della scuola Carlo del Prete, istituto comprensivo Pia Pera."
+      property="og:description"
+    />
+    <meta
+      content="https://interactivecdpdepliant.netlify.app/src/assets/favicon.ico"
+      property="og:image"
+    />
+    <meta
+      content="https://interactivecdpdepliant.netlify.app/"
+      property="og:url"
+    />
+    <meta content="website" property="og:type" />
+    <link href="../styles.css" rel="stylesheet" />
+    <link href="../assets/favicon.ico" rel="icon" />
+    <link href="https://interactivecdpdepliant.netlify.app/" rel="canonical" />
+  </head>
+  <body>
+    <h1>Segreteria e iscrizioni - SG</h1>
+    <img src="./assets/sg.jpg" alt="Segreteria e iscrizioni" />
+    <p>
+      Per contattare la segreteria è possibile inviare un'email all'indirizzo
+      <b
+        ><span class="sendEmail"
+          ><a href="#">LUIC84600N@istruzione.it</a></span
+        ></b
+      >, chiamare il numero
+      <b><a href="tel:0583584388">0583584388</a></b> oppure scrivere tramite PEC
+      (Posta Elettronica Certificata)
+      <b
+        ><span class="sendEmail"
+          ><a href="#">luic84600n@pec.istruzione.it</a></span
+        ></b
+      >.<br />
+      <br />La segreteria è attiva in questi <b>orari</b>: <br />Lunedì:
+      15:00-16:00<br />Martedì: 11:30-13:00<br />
+      Mercoledì: 11:30-13:00<br />Giovedì: 11:30-13:00<br />Venerdì: 8:00-10:00
+    </p>
+    <p>
+      È possibile <b>iscriversi</b> online
+      <b>dalla data 08 gennaio ore 8:00 alla data 31 gennaio ore 20:00</b>
+      dell'anno scolastico precedente a quello nel quale il proprio figlio
+      entrerà in prima media. Gli alunni provenienti dalla stessa
+      <b>scuola primaria</b> dell’Istituto Comprensivo hanno <b>priorità</b>.
+      Chi desidera frequentare le <b><a href="./cm.html">classi musicali</a></b> sosterrà la
+      prova orientativo-attitudinale il <b>20 febbraio</b>. L’iscrizione avviene
+      tramite <b>identità digitale</b> (SPID, CIE, CNS o eIDAS). Si può
+      effettuare l'iscrizione a questo link:
+      <b
+        ><a href="https://unica.istruzione.gov.it/it/orientamento/iscrizioni"
+          >Iscrizioni online - Piattaforma Unica</a
+        ></b
+      >.
+    </p>
+    <a href="/src/index.html"><button class="back">Indietro</button></a>
+    <script src="../js/theme.js"></script>
+    <script type="text/javascript">
+      function openMailClient(email, subject = "", body = "") {
+        // Costruisce la mailto URL
+        const mailto = `mailto:${email}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`;
+
+        // Metodo principale: link invisibile con click simulato
+        const a = document.createElement("a");
+        a.href = mailto;
+        a.style.display = "none";
+        document.body.appendChild(a);
+
+        let mailOpened = false;
+
+        try {
+          a.click();
+          mailOpened = true;
+        } catch (err) {
+          mailOpened = false;
+        }
+
+        // Rimuove il link
+        a.remove();
+
+        // 2) Timeout: se in 800ms non succede nulla → significa che mailto è fallito
+        setTimeout(() => {
+          if (!mailOpened) {
+            console.log("Mail client not opened, trying Gmail after 800ms...");
+            // Fallback Gmail
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${email}&su=${encodeURIComponent(
+              subject
+            )}&body=${encodeURIComponent(body)}`;
+
+            // Apri Gmail
+            const w = window.open(gmailUrl, "_blank");
+
+            // 3) Gmail bloccato? → ultimo fallback Outlook Web
+            if (!w) {
+              const outlookUrl = `https://outlook.live.com/mail/deeplink/compose?to=${email}&subject=${encodeURIComponent(
+                subject
+              )}&body=${encodeURIComponent(body)}`;
+              window.open(outlookUrl, "_blank");
+            }
+          }
+        }, 800);
+      }
+
+      document.querySelectorAll(".sendEmail a").forEach((element) => {
+        const email = element.textContent;
+        element.addEventListener("click", (e) => {
+          e.preventDefault();
+          openMailClient(email);
+        });
+      });
+    </script>
+  </body>
+</html>

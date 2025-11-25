@@ -90,7 +90,7 @@ body {
 /* TITLE                        */
 /* ----------------------------- */
 
-h1 {
+h1, h2 {
   margin: 20px 0;
   color: var(--primary-color);
   text-align: center;
@@ -98,7 +98,7 @@ h1 {
 
 p {
   text-align: center;
-  margin: 10% 5%;
+  margin: 3% 5%;
 }
 
 @media (max-width: 768px) {
@@ -255,4 +255,10 @@ button.back {
     font-size: 2.5vw !important;
     padding: 4px !important;
   }
+}
+
+img {
+  max-width: 80vw;
+  height: auto;
+  margin: 20px 0;
 }
